@@ -1,0 +1,17 @@
+
+.card{
+   transition: all 0.5s;
+.card-body{
+    h2{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+}
+
+.card:hover{
+    transform: translateY(-15px);
+}
+
