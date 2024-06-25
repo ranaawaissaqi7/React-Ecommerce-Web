@@ -8,7 +8,7 @@ export default function HomePageCard({cardData,addCardHandler}) {
   return (
 
     <div className="item my-5">
-       <div   className="card border p-4 ">
+       <div   className="card border p-4 " id={cardData.id}>
         <Link to={`/${cardData.id}`} className="card-image hover:cursor-pointer block">
             <img src={cardData.image} className="mx-auto lg:[height:200px] md:[height:200px] [height:200px]" alt={cardData.title} />
         </Link>

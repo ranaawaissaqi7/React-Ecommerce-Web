@@ -356,7 +356,7 @@ export default function ShipingAdress() {
 
                     <p className=" my-4 text-center">Have an shiping adress already? <Link to={"/"} className=" text-green-800 underline hover:opacity-80 ">add Card!</Link></p>
 
-                    <button className=" bg-green-800 text-white rounded p-4  my-5 hover:opacity-75 [width:100%]">Submit</button>
+                    <button className=" bg-green-800 text-white rounded p-4  my-5 hover:opacity-75 [width:100%]" type='submit'>Submit</button>
                   </div>
                 </div>
 
