@@ -20,11 +20,13 @@ export const UserAllDataSlice = createSlice({
       })
       state.userCardData = newData
     },
-
+    deleteAllCard:(state,action)=>{
+      state.userCardData=[]
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addCard, deleteCard } = UserAllDataSlice.actions
+export const { addCard, deleteCard, deleteAllCard } = UserAllDataSlice.actions
 
 export default UserAllDataSlice.reducer

@@ -9,6 +9,8 @@ import ShipingAdress from '../pages/shipingAdress/ShipingAdress'
 import UserAdmin from '../pages/userAdmin/UserAdmin'
 import { useSelector } from 'react-redux'
 import PrivateRoute from '../important/PrivateRoute'
+import UserDetailPage from '../pages/userDetailPage/UserDetailPage'
+import EditUser from '../pages/editUser/EditUser'
 
 
 export default function Routing() {
@@ -24,6 +26,8 @@ export default function Routing() {
         <Route path="/:id" element={<CardDetailPage />} />
         <Route path="/shipingAdress" element={<PrivateRoute component={ShipingAdress} />} />
         <Route path="/userAdmin" element={<PrivateRoute component={UserAdmin} />} />
+        <Route path="/userDetailPage" element={<PrivateRoute component={UserDetailPage} />} />
+        <Route path="/editUser/:id" element={<PrivateRoute component={EditUser} />} />
       </Routes>
     </BrowserRouter>
   )

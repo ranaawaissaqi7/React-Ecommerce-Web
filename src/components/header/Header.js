@@ -1,9 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link,} from 'react-router-dom';
-import { isAuthChangeHandler } from '../../store/features/AuthSlice';
+import { isAuthChangeHandler, isShipingAdressChangeHandler } from '../../store/features/AuthSlice';
+import { deleteAllCard } from '../../store/features/UserAllDataSlice';
 
 export default function Header() {
+
+  useEffect(()=>{
+
+      const getShipingAdress=async()=>{
+          const res=JSON.parse(localStorage.getItem("userShipingAdress"))
+          console.log("shipingAdress => ",res)
+      }
+      getShipingAdress();
+  },[])
 
   const {isAuth}=useSelector((state)=>state.authHandling)
 
@@ -20,6 +30,10 @@ export default function Header() {
     // logOutHandler
     const logOutHandler=()=>{
       disPatch(isAuthChangeHandler(false))
+      localStorage.removeItem('userShipingAdress');
+      disPatch(isShipingAdressChangeHandler(false))
+      disPatch(deleteAllCard())
+
     }
 
     const [isOpen, setIsOpen] = useState(false);
@@ -75,8 +89,8 @@ export default function Header() {
               isAuth ? 
 
               <>
-            <Link  to={"/userAdmin"} className="block mt-4 lg:inline-block lg:mt-0 hover:opacity-80"  > <i class="fa-solid fa-user-tie"></i> UserAdmin</Link>
-            <Link to={"/shipingAdress"} >Add Shiping Adress</Link>
+             <Link to={"/userDetailPage"} className='block mt-4 lg:inline-block lg:mt-0 hover:opacity-80' > <i class="fa-solid fa-user-tie"></i> User Details</Link> 
+            <Link to={"/shipingAdress"} className='block mt-4 lg:inline-block lg:mt-0 hover:opacity-80' >Add Shiping Adress</Link>
 
             <Link to={"/userAdmin"}  className="block mt-4 lg:inline-block lg:mt-0 hover:opacity-80"> <div className="badge relative" >  <i class="fa-solid fa-cart-shopping"></i>  <span className='  absolute [top:-10px]'>{userCardData.length}</span>  </div> </Link>
 
